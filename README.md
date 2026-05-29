@@ -1,36 +1,90 @@
 <div align="center">
 
-<svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg" width="800">
+<svg viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg" width="800">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0d1117"/>
-      <stop offset="100%" style="stop-color:#161b22"/>
+      <stop offset="100%" style="stop-color:#0a0a0a"/>
     </linearGradient>
-    <linearGradient id="red" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#c0392b"/>
-      <stop offset="100%" style="stop-color:#e74c3c"/>
+    <linearGradient id="redline" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#c0392b;stop-opacity:0"/>
+      <stop offset="30%" style="stop-color:#e74c3c;stop-opacity:1"/>
+      <stop offset="70%" style="stop-color:#e74c3c;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:0"/>
     </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glitch">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch">
+        <animate attributeName="baseFrequency" values="0.65;0.68;0.65" dur="0.3s" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" scale="0" xChannelSelector="R" yChannelSelector="G">
+        <animate attributeName="scale" values="0;0;0;3;0;0;0;2;0;0" dur="4s" repeatCount="indefinite"/>
+      </feDisplacementMap>
+    </filter>
   </defs>
-  <rect width="800" height="200" fill="url(#bg)" rx="12"/>
-  <rect x="0" y="160" width="800" height="3" fill="url(#red)" rx="2"/>
-  <text x="400" y="75" text-anchor="middle" font-family="monospace" font-size="13" fill="#e74c3c" letter-spacing="6" opacity="0.8">
-    RELIANCE INDUSTRIES · PARUL UNIVERSITY
-    <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+
+  <!-- Background -->
+  <rect width="800" height="220" fill="url(#bg)" rx="12"/>
+
+  <!-- Grid lines -->
+  <line x1="0" y1="55" x2="800" y2="55" stroke="#ffffff" stroke-width="0.3" stroke-opacity="0.05"/>
+  <line x1="0" y1="110" x2="800" y2="110" stroke="#ffffff" stroke-width="0.3" stroke-opacity="0.05"/>
+  <line x1="0" y1="165" x2="800" y2="165" stroke="#ffffff" stroke-width="0.3" stroke-opacity="0.05"/>
+  <line x1="200" y1="0" x2="200" y2="220" stroke="#ffffff" stroke-width="0.3" stroke-opacity="0.05"/>
+  <line x1="400" y1="0" x2="400" y2="220" stroke="#ffffff" stroke-width="0.3" stroke-opacity="0.05"/>
+  <line x1="600" y1="0" x2="600" y2="220" stroke="#ffffff" stroke-width="0.3" stroke-opacity="0.05"/>
+
+  <!-- Scanning line -->
+  <rect x="0" y="0" width="800" height="3" fill="#e74c3c" opacity="0.15" rx="0">
+    <animate attributeName="y" values="-3;223;-3" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.15;0" dur="4s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Top label with pulse -->
+  <text x="400" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#e74c3c" letter-spacing="6" filter="url(#glow)">
+    RELIANCE INDUSTRIES  ·  PARUL UNIVERSITY  ·  2026
+    <animate attributeName="opacity" values="1;0.4;1;0.7;1" dur="5s" repeatCount="indefinite"/>
   </text>
-  <text x="400" y="125" text-anchor="middle" font-family="Arial Black" font-size="28" font-weight="900" fill="#ffffff" letter-spacing="1">
-    LLM Observability Framework
+
+  <!-- Main title with glitch -->
+  <text x="400" y="115" text-anchor="middle" font-family="'Arial Black', Arial" font-size="36" font-weight="900" fill="#ffffff" letter-spacing="2" filter="url(#glitch)">
+    LLM Observability
   </text>
-  <text x="400" y="152" text-anchor="middle" font-family="monospace" font-size="12" fill="#8b949e" letter-spacing="3">
+  <!-- Red glitch copy -->
+  <text x="403" y="115" text-anchor="middle" font-family="'Arial Black', Arial" font-size="36" font-weight="900" fill="#e74c3c" letter-spacing="2" opacity="0">
+    LLM Observability
+    <animate attributeName="opacity" values="0;0;0;0.6;0;0;0;0.4;0" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="x" values="403;398;403;406;403" dur="4s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- Subtitle -->
+  <text x="400" y="148" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#8b949e" letter-spacing="4">
     Langfuse  ·  OpenTelemetry  ·  Python  ·  Docker
   </text>
-  <circle cx="32" cy="32" r="6" fill="#e74c3c" opacity="0.8">
-    <animate attributeName="r" values="4;8;4" dur="2s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+
+  <!-- Animated bottom line -->
+  <rect x="150" y="172" width="500" height="2" fill="url(#redline)" rx="1">
+    <animate attributeName="width" values="0;500;500;0" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="x" values="400;150;150;400" dur="3s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Status indicator -->
+  <circle cx="290" cy="195" r="4" fill="#27ae60" filter="url(#glow)">
+    <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
   </circle>
-  <circle cx="768" cy="32" r="6" fill="#e74c3c" opacity="0.8">
-    <animate attributeName="r" values="8;4;8" dur="2s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
-  </circle>
+  <text x="300" y="199" font-family="'Courier New', monospace" font-size="10" fill="#27ae60" letter-spacing="1">SYSTEM ONLINE</text>
+
+  <!-- Token counter animation -->
+  <text x="490" y="199" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#e74c3c" letter-spacing="1">r = 0.98  ·  45s  ·  100%</text>
+
+  <!-- Corner brackets -->
+  <path d="M 15 15 L 15 35 M 15 15 L 35 15" stroke="#e74c3c" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 785 15 L 785 35 M 785 15 L 765 15" stroke="#e74c3c" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 15 205 L 15 185 M 15 205 L 35 205" stroke="#e74c3c" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 785 205 L 785 185 M 785 205 L 765 205" stroke="#e74c3c" stroke-width="2" fill="none" opacity="0.6"/>
 </svg>
 
 <br/>
