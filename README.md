@@ -1,91 +1,8 @@
 <div align="center">
 
-<svg viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg" width="800">
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0d1117"/>
-      <stop offset="100%" style="stop-color:#0a0a0a"/>
-    </linearGradient>
-    <linearGradient id="redline" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#c0392b;stop-opacity:0"/>
-      <stop offset="30%" style="stop-color:#e74c3c;stop-opacity:1"/>
-      <stop offset="70%" style="stop-color:#e74c3c;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:0"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="glitch">
-      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch">
-        <animate attributeName="baseFrequency" values="0.65;0.68;0.65" dur="0.3s" repeatCount="indefinite"/>
-      </feTurbulence>
-      <feDisplacementMap in="SourceGraphic" scale="0" xChannelSelector="R" yChannelSelector="G">
-        <animate attributeName="scale" values="0;0;0;3;0;0;0;2;0;0" dur="4s" repeatCount="indefinite"/>
-      </feDisplacementMap>
-    </filter>
-  </defs>
+![Header](https://capsule-render.vercel.app/api?type=waving&color=c0392b&height=220&section=header&text=LLM%20Observability&fontSize=55&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Langfuse%20%C2%B7%20OpenTelemetry%20%C2%B7%20Python%20%C2%B7%20Docker&descAlignY=56&descAlign=50&descSize=16)
 
-  <!-- Background -->
-  <rect width="800" height="220" fill="url(#bg)" rx="12"/>
-
-  <!-- Grid lines -->
-  <line x1="0" y1="55" x2="800" y2="55" stroke="#ffffff" stroke-width="0.3" stroke-opacity="0.05"/>
-  <line x1="0" y1="110" x2="800" y2="110" stroke="#ffffff" stroke-width="0.3" stroke-opacity="0.05"/>
-  <line x1="0" y1="165" x2="800" y2="165" stroke="#ffffff" stroke-width="0.3" stroke-opacity="0.05"/>
-  <line x1="200" y1="0" x2="200" y2="220" stroke="#ffffff" stroke-width="0.3" stroke-opacity="0.05"/>
-  <line x1="400" y1="0" x2="400" y2="220" stroke="#ffffff" stroke-width="0.3" stroke-opacity="0.05"/>
-  <line x1="600" y1="0" x2="600" y2="220" stroke="#ffffff" stroke-width="0.3" stroke-opacity="0.05"/>
-
-  <!-- Scanning line -->
-  <rect x="0" y="0" width="800" height="3" fill="#e74c3c" opacity="0.15" rx="0">
-    <animate attributeName="y" values="-3;223;-3" dur="4s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;0.15;0" dur="4s" repeatCount="indefinite"/>
-  </rect>
-
-  <!-- Top label with pulse -->
-  <text x="400" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#e74c3c" letter-spacing="6" filter="url(#glow)">
-    RELIANCE INDUSTRIES  ·  PARUL UNIVERSITY  ·  2026
-    <animate attributeName="opacity" values="1;0.4;1;0.7;1" dur="5s" repeatCount="indefinite"/>
-  </text>
-
-  <!-- Main title with glitch -->
-  <text x="400" y="115" text-anchor="middle" font-family="'Arial Black', Arial" font-size="36" font-weight="900" fill="#ffffff" letter-spacing="2" filter="url(#glitch)">
-    LLM Observability
-  </text>
-  <!-- Red glitch copy -->
-  <text x="403" y="115" text-anchor="middle" font-family="'Arial Black', Arial" font-size="36" font-weight="900" fill="#e74c3c" letter-spacing="2" opacity="0">
-    LLM Observability
-    <animate attributeName="opacity" values="0;0;0;0.6;0;0;0;0.4;0" dur="4s" repeatCount="indefinite"/>
-    <animate attributeName="x" values="403;398;403;406;403" dur="4s" repeatCount="indefinite"/>
-  </text>
-
-  <!-- Subtitle -->
-  <text x="400" y="148" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#8b949e" letter-spacing="4">
-    Langfuse  ·  OpenTelemetry  ·  Python  ·  Docker
-  </text>
-
-  <!-- Animated bottom line -->
-  <rect x="150" y="172" width="500" height="2" fill="url(#redline)" rx="1">
-    <animate attributeName="width" values="0;500;500;0" dur="3s" repeatCount="indefinite"/>
-    <animate attributeName="x" values="400;150;150;400" dur="3s" repeatCount="indefinite"/>
-  </rect>
-
-  <!-- Status indicator -->
-  <circle cx="290" cy="195" r="4" fill="#27ae60" filter="url(#glow)">
-    <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
-  </circle>
-  <text x="300" y="199" font-family="'Courier New', monospace" font-size="10" fill="#27ae60" letter-spacing="1">SYSTEM ONLINE</text>
-
-  <!-- Token counter animation -->
-  <text x="490" y="199" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#e74c3c" letter-spacing="1">r = 0.98  ·  45s  ·  100%</text>
-
-  <!-- Corner brackets -->
-  <path d="M 15 15 L 15 35 M 15 15 L 35 15" stroke="#e74c3c" stroke-width="2" fill="none" opacity="0.6"/>
-  <path d="M 785 15 L 785 35 M 785 15 L 765 15" stroke="#e74c3c" stroke-width="2" fill="none" opacity="0.6"/>
-  <path d="M 15 205 L 15 185 M 15 205 L 35 205" stroke="#e74c3c" stroke-width="2" fill="none" opacity="0.6"/>
-  <path d="M 785 205 L 785 185 M 785 205 L 765 205" stroke="#e74c3c" stroke-width="2" fill="none" opacity="0.6"/>
-</svg>
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=2500&pause=800&color=E74C3C&center=true&vCenter=true&width=700&height=50&lines=Built+during+AI%2FML+Internship+%40+Reliance+Industries;Fault+isolation%3A+8+minutes+%E2%86%92+45+seconds;100%25+failure+detection+rate;r+%3D+0.98+token+%E2%86%92+latency+correlation)
 
 <br/>
 
@@ -94,6 +11,7 @@
 ![LangChain](https://img.shields.io/badge/LangChain-Framework-1C3C3C?style=for-the-badge&logo=chainlink&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-Deployed-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Research](https://img.shields.io/badge/Research-Published-C0392B?style=for-the-badge&logo=academia&logoColor=white)
+![Reliance](https://img.shields.io/badge/Reliance-Industries-C0392B?style=for-the-badge&logoColor=white)
 
 </div>
 
@@ -101,22 +19,16 @@
 
 ## 🚨 The Problem
 
-<div align="center">
+LLM apps are **black boxes**.
 
-<svg viewBox="0 0 700 120" xmlns="http://www.w3.org/2000/svg" width="700">
-  <rect width="700" height="120" fill="#0d1117" rx="8"/>
-  <rect x="1" y="1" width="698" height="118" fill="none" stroke="#2a1010" stroke-width="1" rx="8"/>
-  <text x="350" y="35" text-anchor="middle" font-family="monospace" font-size="12" fill="#e74c3c" letter-spacing="3">BEFORE THIS FRAMEWORK</text>
-  <text x="175" y="70" text-anchor="middle" font-family="Arial Black" font-size="32" font-weight="900" fill="#ffffff">8 min</text>
-  <text x="175" y="95" text-anchor="middle" font-family="monospace" font-size="11" fill="#8b949e">avg fault isolation</text>
-  <line x1="350" y1="50" x2="350" y2="105" stroke="#2a1010" stroke-width="1" stroke-dasharray="4"/>
-  <text x="525" y="70" text-anchor="middle" font-family="Arial Black" font-size="32" font-weight="900" fill="#ffffff">~60%</text>
-  <text x="525" y="95" text-anchor="middle" font-family="monospace" font-size="11" fill="#8b949e">failure detection rate</text>
-</svg>
+When something breaks or slows down, traditional logs give you almost nothing useful. Developers spend **minutes guessing** instead of seconds fixing.
 
-</div>
-
-LLM apps are **black boxes**. When something breaks or slows down, traditional logs give you almost nothing useful. Developers spend minutes guessing instead of seconds fixing.
+| Metric | Traditional Logging |
+|---|---|
+| Avg Fault Isolation | ⏱ ~8 minutes |
+| Failure Detection Rate | ❌ ~60% |
+| Token Monitoring | ❌ Not Available |
+| Latency Analysis | ⚠️ Basic only |
 
 ---
 
@@ -124,40 +36,17 @@ LLM apps are **black boxes**. When something breaks or slows down, traditional l
 
 <div align="center">
 
-<svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg" width="700">
-  <defs>
-    <linearGradient id="redglow" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#c0392b;stop-opacity:0.2"/>
-      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:0"/>
-    </linearGradient>
-  </defs>
-  <rect width="700" height="160" fill="#0d1117" rx="8"/>
-  <rect x="1" y="1" width="698" height="158" fill="none" stroke="#2a1010" stroke-width="1" rx="8"/>
-  <text x="350" y="30" text-anchor="middle" font-family="monospace" font-size="12" fill="#27ae60" letter-spacing="3">AFTER THIS FRAMEWORK</text>
-
-  <!-- Stat 1 -->
-  <rect x="20" y="45" width="200" height="95" fill="url(#redglow)" rx="6"/>
-  <rect x="20" y="45" width="200" height="95" fill="none" stroke="#2a1010" stroke-width="1" rx="6"/>
-  <text x="120" y="90" text-anchor="middle" font-family="Arial Black" font-size="30" font-weight="900" fill="#e74c3c">45s</text>
-  <text x="120" y="115" text-anchor="middle" font-family="monospace" font-size="10" fill="#8b949e">fault isolation time</text>
-  <text x="120" y="130" text-anchor="middle" font-family="monospace" font-size="10" fill="#27ae60">↓ 91% faster</text>
-
-  <!-- Stat 2 -->
-  <rect x="250" y="45" width="200" height="95" fill="url(#redglow)" rx="6"/>
-  <rect x="250" y="45" width="200" height="95" fill="none" stroke="#2a1010" stroke-width="1" rx="6"/>
-  <text x="350" y="90" text-anchor="middle" font-family="Arial Black" font-size="30" font-weight="900" fill="#e74c3c">100%</text>
-  <text x="350" y="115" text-anchor="middle" font-family="monospace" font-size="10" fill="#8b949e">failure detection rate</text>
-  <text x="350" y="130" text-anchor="middle" font-family="monospace" font-size="10" fill="#27ae60">↑ from ~60%</text>
-
-  <!-- Stat 3 -->
-  <rect x="480" y="45" width="200" height="95" fill="url(#redglow)" rx="6"/>
-  <rect x="480" y="45" width="200" height="95" fill="none" stroke="#2a1010" stroke-width="1" rx="6"/>
-  <text x="580" y="90" text-anchor="middle" font-family="Arial Black" font-size="30" font-weight="900" fill="#e74c3c">0.98</text>
-  <text x="580" y="115" text-anchor="middle" font-family="monospace" font-size="10" fill="#8b949e">latency correlation (r)</text>
-  <text x="580" y="130" text-anchor="middle" font-family="monospace" font-size="10" fill="#27ae60">token → latency predictor</text>
-</svg>
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&duration=2000&pause=500&color=27AE60&center=true&vCenter=true&width=600&height=40&lines=45+seconds+fault+isolation+%E2%86%93+91%25+faster;100%25+failure+detection+rate;Full+token+%2B+latency+visibility;Real-time+Langfuse+dashboard)
 
 </div>
+
+| Metric | Traditional Logging | This Framework |
+|---|---|---|
+| Fault Isolation Time | ~8 minutes | ✅ **45 seconds** |
+| Failure Detection Rate | ~60% | ✅ **100%** |
+| Token Monitoring | ❌ Not Available | ✅ Full breakdown |
+| Latency Analysis | ⚠️ Basic | ✅ Advanced |
+| Telemetry Visualization | ❌ Not Supported | ✅ Langfuse Dashboard |
 
 ---
 
@@ -165,47 +54,20 @@ LLM apps are **black boxes**. When something breaks or slows down, traditional l
 
 <div align="center">
 
-<svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" width="700">
-  <rect width="700" height="220" fill="#0d1117" rx="8"/>
-  <rect x="1" y="1" width="698" height="218" fill="none" stroke="#2a1010" stroke-width="1" rx="8"/>
-  <text x="350" y="30" text-anchor="middle" font-family="monospace" font-size="11" fill="#e74c3c" letter-spacing="4">LATENCY vs TOKEN COUNT</text>
-
-  <!-- Bars -->
-  <rect x="80" y="155" width="60" height="20" fill="#c0392b" rx="3">
-    <animate attributeName="height" from="0" to="20" dur="1s" fill="freeze"/>
-    <animate attributeName="y" from="175" to="155" dur="1s" fill="freeze"/>
-  </rect>
-  <text x="110" y="148" text-anchor="middle" font-family="monospace" font-size="11" fill="#ffffff">0.20s</text>
-  <text x="110" y="185" text-anchor="middle" font-family="monospace" font-size="10" fill="#8b949e">45 tokens</text>
-
-  <rect x="220" y="127" width="60" height="48" fill="#c0392b" rx="3">
-    <animate attributeName="height" from="0" to="48" dur="1.2s" fill="freeze"/>
-    <animate attributeName="y" from="175" to="127" dur="1.2s" fill="freeze"/>
-  </rect>
-  <text x="250" y="120" text-anchor="middle" font-family="monospace" font-size="11" fill="#ffffff">0.38s</text>
-  <text x="250" y="185" text-anchor="middle" font-family="monospace" font-size="10" fill="#8b949e">128 tokens</text>
-
-  <rect x="360" y="61" width="60" height="114" fill="#c0392b" rx="3">
-    <animate attributeName="height" from="0" to="114" dur="1.4s" fill="freeze"/>
-    <animate attributeName="y" from="175" to="61" dur="1.4s" fill="freeze"/>
-  </rect>
-  <text x="390" y="54" text-anchor="middle" font-family="monospace" font-size="11" fill="#ffffff">0.91s</text>
-  <text x="390" y="185" text-anchor="middle" font-family="monospace" font-size="10" fill="#8b949e">420 tokens</text>
-
-  <rect x="500" y="40" width="60" height="135" fill="#e74c3c" rx="3">
-    <animate attributeName="height" from="0" to="135" dur="1.6s" fill="freeze"/>
-    <animate attributeName="y" from="175" to="40" dur="1.6s" fill="freeze"/>
-  </rect>
-  <text x="530" y="33" text-anchor="middle" font-family="monospace" font-size="11" fill="#ffffff">1.42s</text>
-  <text x="530" y="185" text-anchor="middle" font-family="monospace" font-size="10" fill="#8b949e">760 tokens</text>
-
-  <line x1="50" y1="175" x2="650" y2="175" stroke="#2a1010" stroke-width="1"/>
-  <text x="350" y="210" text-anchor="middle" font-family="monospace" font-size="11" fill="#e74c3c" letter-spacing="2">r = 0.98 Pearson Correlation</text>
-</svg>
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&duration=3000&pause=1000&color=E74C3C&center=true&vCenter=true&width=700&height=40&lines=Your+prompt+length+is+your+performance+problem.;Not+your+model.+Not+your+server.+Your+prompts.)
 
 </div>
 
-> **💡 Your prompt length is your performance problem. Not your model. Not your server. Your prompts.**
+| Prompt Size | Avg Latency | Trend |
+|---|---|---|
+| 45 tokens | 0.20s | 🟢 Fast |
+| 128 tokens | 0.38s | 🟡 Medium |
+| 420 tokens | 0.91s | 🟠 Slow |
+| 760 tokens | 1.42s | 🔴 Very Slow |
+
+> **Pearson Correlation r = 0.98** — token count predicts latency with near-perfect accuracy.
+>
+> **💡 Optimize your prompts before optimizing your infrastructure.**
 
 ---
 
@@ -239,30 +101,28 @@ User Prompt
          │
          ▼
 ┌─────────────────────┐
-│  OpenTelemetry      │ ← Instruments every request
-│  Instrumentation    │   Captures: latency, tokens,
-└────────┬────────────┘   traces, errors, metadata
+│  OpenTelemetry      │ ← Captures: latency, tokens,
+│  Instrumentation    │   traces, errors, metadata
+└────────┬────────────┘
          │  OTLP Export
          ▼
 ┌─────────────────────┐
 │  Langfuse Backend   │ ← Deployed via Docker
-│  + PostgreSQL       │   Stores all telemetry
-│  + Redis            │
+│  PostgreSQL + Redis │
 └────────┬────────────┘
          │
          ▼
 ┌─────────────────────┐
 │  Langfuse Dashboard │ ← Real-time visualization
-│  Traces · Tokens    │   Latency · Errors · Spans
-│  Latency · Errors   │
+│  Traces · Tokens    │
 └─────────────────────┘
 ```
 
 ---
 
-## ⚡ Failure Detection Results
+## ⚡ Failure Detection — 100% Rate
 
-All **4 failure categories** detected with **100% accuracy**:
+All **4 failure categories** detected across every single test:
 
 | Failure Type | Cause | Detection Method | Rate | Avg Time |
 |---|---|---|---|---|
@@ -270,19 +130,6 @@ All **4 failure categories** detected with **100% accuracy**:
 | 💥 Token Overflow | Context exceeded | Token telemetry | 3/3 | **0.8s** |
 | 🌐 Network Interruption | Connection loss | Failed traces | 3/3 | **1.6s** |
 | ⏱ API Timeout | Delayed response | Latency monitoring | 3/3 | **2.1s** |
-
----
-
-## 📊 Comparison: Traditional Logging vs This Framework
-
-| Feature | Traditional Logging | This Framework |
-|---|---|---|
-| Runtime Tracing | ❌ Limited | ✅ Comprehensive |
-| Token Monitoring | ❌ Not Available | ✅ Full breakdown |
-| Latency Analysis | ⚠️ Basic | ✅ Advanced |
-| Failure Detection | ❌ Manual (~60%) | ✅ Automated (100%) |
-| Telemetry Visualization | ❌ Not Supported | ✅ Langfuse Dashboard |
-| **Avg Fault Isolation** | **~8 minutes** | **~45 seconds** |
 
 ---
 
@@ -316,7 +163,7 @@ export LANGFUSE_SECRET_KEY=your_langfuse_secret_key
 python main.py
 ```
 
-Open **http://localhost:3000** → Langfuse Dashboard
+Open **http://localhost:3000** → Langfuse Dashboard 🎉
 
 ---
 
@@ -347,25 +194,16 @@ LangFuse/
 **Published under:** Reliance Industries Limited · Project 2324R
 
 **Key Contributions:**
-- Quantified r = 0.98 correlation between token count and latency
-- 100% failure detection rate across 4 failure categories
-- 91% reduction in fault isolation time vs traditional logging
-- Reusable Docker deployment configuration for local Langfuse
+- Quantified **r = 0.98** correlation between token count and latency
+- **100% failure detection rate** across 4 failure categories
+- **91% reduction** in fault isolation time vs traditional logging
+- Reusable Docker deployment for local Langfuse infrastructure
 
 ---
 
 <div align="center">
 
-<svg viewBox="0 0 700 60" xmlns="http://www.w3.org/2000/svg" width="700">
-  <rect width="700" height="60" fill="#0d1117" rx="8"/>
-  <rect x="0" y="0" width="700" height="2" fill="#c0392b" rx="1"/>
-  <text x="350" y="25" text-anchor="middle" font-family="monospace" font-size="12" fill="#8b949e" letter-spacing="2">Built during AI/ML Internship</text>
-  <text x="350" y="45" text-anchor="middle" font-family="Arial Black" font-size="13" font-weight="900" fill="#e74c3c" letter-spacing="1">RELIANCE INDUSTRIES LIMITED</text>
-</svg>
-
-<br/>
-
-**Aum Aswar** · AI/ML Engineer · Parul University, Vadodara
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=c0392b&height=120&section=footer&text=Aum%20Aswar&fontSize=30&fontColor=ffffff&animation=fadeIn&fontAlignY=65&desc=AI%2FML+Engineer+%C2%B7+Parul+University+%C2%B7+Reliance+Industries&descAlignY=85&descAlign=50&descSize=13)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/aum-aswar-3837823b3/)
 [![Email](https://img.shields.io/badge/Email-Contact-C0392B?style=for-the-badge&logo=gmail&logoColor=white)](mailto:aum.aswar06@gmail.com)
